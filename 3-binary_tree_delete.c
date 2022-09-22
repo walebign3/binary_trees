@@ -8,28 +8,13 @@
 
 void binary_tree_delete(binary_tree_t *tree)
 {
-	binary_tree_t *tmp1, *tmp2, *tmp3, *tmp4;
-
-	tmp1 = tree->left;
-	tmp3 = tree->right;
 	if (tree == NULL)
-		;
-	else
+		return;
+	if (tree->left == NULL && tree->right == NULL)
 	{
-		while (tmp1 != NULL)
-		{
-			tmp2 = tmp1;
-			tmp1 = tmp1->left;
-			free(tmp2);
-			tmp2 = tmp1;
-		}
-		while (tmp3 != NULL)
-		{
-			tmp4 = tmp3;
-			tmp3 = tmp3->right;
-			free(tmp4);
-			tmp4 = tmp3;
-		}
 		free(tree);
+		return;
 	}
+	binary_tree_delete(tree->left);
+	binary_tree_delete(tree->right);
 }
