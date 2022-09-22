@@ -13,7 +13,7 @@ void binary_tree_delete(binary_tree_t *tree)
 	tmp1 = tree->left;
 	tmp3 = tree->right;
 	if (tree == NULL)
-		(void)0;
+		;
 	else
 	{
 		while (tmp1 != NULL)
